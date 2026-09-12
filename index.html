@@ -361,7 +361,7 @@
           </div>
           <button class="roulette-spin magnetic" id="rouletteSpin" type="button">
             <span class="roulette-spin-icon">↻</span>
-            <span><small>PRESS TO</small><b>КРУТИТЬ</b></span>
+            <span><small id="rouletteSpinLabel">PRESS TO</small><b id="rouletteSpinText">КРУТИТЬ</b></span>
           </button>
         </div>
       </div>
@@ -377,12 +377,23 @@
           <h3 id="rouletteResultTitle">Крути рулетку и получи задание</h3>
           <p id="taskResultDescription">После остановки рулетки здесь появится полный текст задания.</p>
           <div class="task-meta"><span id="taskResultDifficulty">ЛЕГКО</span><span>•</span><span id="taskResultTime">2 МИН</span></div>
+
+          <div class="task-answer-box" id="taskAnswerBox" hidden>
+            <label for="taskAnswerInput"><span>?</span> ВВЕДИ ОТВЕТ</label>
+            <div class="task-answer-row">
+              <input id="taskAnswerInput" type="text" placeholder="Твой ответ…" autocomplete="off" spellcheck="false">
+              <button class="task-answer-check" id="taskAnswerCheck" type="button">ПРОВЕРИТЬ</button>
+            </div>
+            <p class="task-answer-feedback" id="taskAnswerFeedback" aria-live="polite"></p>
+          </div>
+
           <div class="roulette-result-actions">
             <button class="btn btn-primary" id="challengeShare" type="button">Поделиться заданием <span>↗</span></button>
-            <button class="btn btn-ghost" id="rouletteAgain" type="button">Крутить ещё ↻</button>
           </div>
         </div>
       </div>
+
+      <div class="roulette-selected-note" id="rouletteSelectedNote" hidden aria-live="polite"><span>✓</span> ЗАДАНИЕ ВЫБРАНО</div>
 
       <p class="micro-note reveal roulette-note">Сейчас это набор заданий для сайта в стиле Samuil Pashyan. Если Самуил пришлёт свой официальный список заданий, его можно просто подставить в эту же рулетку.</p>
     </section>
