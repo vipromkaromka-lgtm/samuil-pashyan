@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=20260912-roulette4" />
 </head>
 <body class="intro-active">
 
@@ -357,7 +357,8 @@
           <div class="roulette-copy">
             <small>SAMUIL TASK GENERATOR</small>
             <strong id="rouletteStatus">РУЛЕТКА ГОТОВА</strong>
-            <p id="rouletteHint">В рулетке только безопасные текстовые задания. Если выпавшее задание не подходит — крути ещё раз.</p>
+            <p id="rouletteHint">Можно прокрутить 2 раза подряд. После второй попытки включится таймер на 5 минут.</p>
+            <div class="roulette-tries" id="rouletteTries"><span>ПОПЫТКИ</span><b>2 / 2</b></div>
           </div>
           <button class="roulette-spin magnetic" id="rouletteSpin" type="button">
             <span class="roulette-spin-icon">↻</span>
@@ -379,7 +380,7 @@
           <div class="task-meta"><span id="taskResultDifficulty">ЛЕГКО</span><span>•</span><span id="taskResultTime">2 МИН</span></div>
 
           <div class="task-answer-box" id="taskAnswerBox" hidden>
-            <label for="taskAnswerInput"><span>?</span> ВВЕДИ ОТВЕТ</label>
+            <label for="taskAnswerInput"><span>?</span> ЭТО ВОПРОС — ВВЕДИ ОТВЕТ</label>
             <div class="task-answer-row">
               <input id="taskAnswerInput" type="text" placeholder="Твой ответ…" autocomplete="off" spellcheck="false">
               <button class="task-answer-check" id="taskAnswerCheck" type="button">ПРОВЕРИТЬ</button>
@@ -562,6 +563,6 @@
     <p id="lightboxCaption"></p>
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=20260912-roulette4"></script>
 </body>
 </html>

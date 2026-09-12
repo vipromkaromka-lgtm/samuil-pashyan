@@ -167,31 +167,31 @@ window.addEventListener('keydown', e => {
 });
 
 
-// ===== TEXT TASK ROULETTE =====
+// ===== TEXT TASK ROULETTE v4 =====
 const challengeTasks = [
   { title: 'Назови 7 марок мотоциклов за 15 секунд', description: 'Включи таймер. Повторять одну и ту же марку нельзя.', category: 'SPEED', difficulty: 'СРЕДНЕ', time: '15 СЕК' },
+  { title: 'Вопрос: сколько колёс у обычного мотоцикла?', description: 'Впиши ответ числом или словом.', category: 'QUIZ', difficulty: 'ЛЕГКО', time: '30 СЕК', question: true, answers: ['2', 'два', '2 колеса', 'два колеса'] },
   { title: 'Придумай название для своего мотопроекта', description: 'Короткое, запоминающееся и такое, чтобы его хотелось увидеть на наклейке.', category: 'IDEA', difficulty: 'ЛЕГКО', time: '2 МИН' },
-  { title: 'Нарисуй мотоцикл мечты за 3 минуты', description: 'Не важен талант художника — добавь цвет, номер и одну необычную деталь.', category: 'DRAW', difficulty: 'СРЕДНЕ', time: '3 МИН' },
-  { title: 'Сделай 15 приседаний', description: 'Небольшой безопасный физический челлендж. Делай в комфортном темпе.', category: 'ACTIVE', difficulty: 'ЛЕГКО', time: '1 МИН' },
-  { title: 'Вопрос: сколько колёс у обычного мотоцикла?', description: 'Впиши ответ числом или словом и нажми «Проверить».', category: 'QUIZ', difficulty: 'ЛЕГКО', time: '30 СЕК', question: true, answers: ['2', 'два', '2 колеса', 'два колеса'] },
-  { title: 'Придумай номер для гоночного мотоцикла', description: 'Выбери число от 1 до 999 и придумай, почему именно оно.', category: 'STYLE', difficulty: 'ЛЕГКО', time: '1 МИН' },
   { title: 'Вопрос: как называется защитный головной убор мотоциклиста?', description: 'Впиши название основной защиты головы.', category: 'QUIZ', difficulty: 'ЛЕГКО', time: '30 СЕК', question: true, answers: ['шлем', 'мотошлем', 'мото шлем'] },
-  { title: 'Сделай самое серьёзное байкерское фото', description: 'Можно рядом с велосипедом, самокатом, машиной или мотоциклом. Техника должна стоять.', category: 'PHOTO', difficulty: 'ЛЕГКО', time: '5 МИН' },
-  { title: 'Придумай смешной штраф за проигрыш в челлендже', description: 'Только безопасный и добрый вариант — без боли, унижения и риска.', category: 'FUN', difficulty: 'ЛЕГКО', time: '2 МИН' },
+  { title: 'Нарисуй мотоцикл мечты за 3 минуты', description: 'Не важен талант художника — добавь цвет, номер и одну необычную деталь.', category: 'DRAW', difficulty: 'СРЕДНЕ', time: '3 МИН' },
   { title: 'Вопрос: какая марка выпускает модель KX85?', description: 'Подсказка: эта модель уже упоминается на сайте Самуила.', category: 'QUIZ', difficulty: 'СРЕДНЕ', time: '45 СЕК', question: true, answers: ['kawasaki', 'кавасаки', 'кавасаки kawasaki'] },
-  { title: 'Придумай идеальную раскраску для байка', description: 'Назови основной цвет, второй цвет и одну деталь, которая будет выделяться.', category: 'DESIGN', difficulty: 'ЛЕГКО', time: '2 МИН' },
-  { title: 'Стой в планке 20 секунд', description: 'Только если тебе комфортно. Если нет — замени на 10 спокойных приседаний.', category: 'ACTIVE', difficulty: 'СРЕДНЕ', time: '20 СЕК' },
+  { title: 'Сделай 15 приседаний', description: 'Небольшой безопасный физический челлендж. Делай в комфортном темпе.', category: 'ACTIVE', difficulty: 'ЛЕГКО', time: '1 МИН' },
   { title: 'Вопрос: на какой платформе основной видеоканал Самуила?', description: 'Впиши название видеоплатформы.', category: 'QUIZ', difficulty: 'ЛЕГКО', time: '30 СЕК', question: true, answers: ['youtube', 'ютуб', 'you tube'] },
-  { title: 'Назови 5 вещей, которые берут в поездку', description: 'Подумай о полезных и безопасных вещах, которые пригодятся в дороге.', category: 'TRIP', difficulty: 'ЛЕГКО', time: '1 МИН' },
-  { title: 'Изобрази звук двигателя без слов', description: 'У тебя есть 10 секунд. Чем смешнее получится — тем лучше.', category: 'FUN', difficulty: 'ЛЕГКО', time: '10 СЕК' },
-  { title: 'Вопрос: как называется езда по бездорожью?', description: 'Подойдёт русское или английское написание этого слова.', category: 'QUIZ', difficulty: 'СРЕДНЕ', time: '45 СЕК', question: true, answers: ['оффроуд', 'офф роуд', 'offroad', 'off road', 'off-road'] },
-  { title: 'Выбери цвет байка навсегда', description: 'Можно выбрать только один цвет. Объясни, почему именно он.', category: 'CHOICE', difficulty: 'ЛЕГКО', time: '1 МИН' },
-  { title: 'Сделай 10 отжиманий от стены', description: 'Лёгкий вариант задания. Двигайся спокойно и остановись, если некомфортно.', category: 'ACTIVE', difficulty: 'ЛЕГКО', time: '1 МИН' },
-  { title: 'Вопрос: какая модель Toyota упоминается на этом сайте?', description: 'Впиши название модели, которая появлялась в авто-контенте Самуила.', category: 'QUIZ', difficulty: 'СРЕДНЕ', time: '45 СЕК', question: true, answers: ['altezza', 'toyota altezza', 'альтезза', 'тойота альтезза', 'алтецца', 'тойота алтецца'] },
+  { title: 'Придумай номер для гоночного мотоцикла', description: 'Выбери число от 1 до 999 и придумай, почему именно оно.', category: 'STYLE', difficulty: 'ЛЕГКО', time: '1 МИН' },
+  { title: 'Вопрос: как называется езда по бездорожью?', description: 'Подойдёт русское или английское написание.', category: 'QUIZ', difficulty: 'СРЕДНЕ', time: '45 СЕК', question: true, answers: ['оффроуд', 'офф роуд', 'offroad', 'off road', 'off-road'] },
+  { title: 'Сделай самое серьёзное байкерское фото', description: 'Можно рядом с велосипедом, самокатом, машиной или мотоциклом. Техника должна стоять.', category: 'PHOTO', difficulty: 'ЛЕГКО', time: '5 МИН' },
+  { title: 'Вопрос: какая модель Toyota упоминается на этом сайте?', description: 'Впиши название модели из авто-контента Самуила.', category: 'QUIZ', difficulty: 'СРЕДНЕ', time: '45 СЕК', question: true, answers: ['altezza', 'toyota altezza', 'альтезза', 'тойота альтезза', 'алтецца', 'тойота алтецца'] },
+  { title: 'Придумай смешной штраф за проигрыш в челлендже', description: 'Только безопасный и добрый вариант — без боли, унижения и риска.', category: 'FUN', difficulty: 'ЛЕГКО', time: '2 МИН' },
   { title: 'Вопрос: какой сигнал светофора означает «стоп»?', description: 'Впиши цвет сигнала.', category: 'QUIZ', difficulty: 'ЛЕГКО', time: '30 СЕК', question: true, answers: ['красный', 'красный свет'] },
-  { title: 'Назови 3 правила хорошей поездки', description: 'Сформулируй три коротких правила про безопасность, подготовку и уважение к другим.', category: 'ROAD', difficulty: 'ЛЕГКО', time: '2 МИН' },
-  { title: 'Придумай необычный номерной знак', description: 'До 8 символов. Он должен быть связан с техникой или твоим ником.', category: 'STYLE', difficulty: 'ЛЕГКО', time: '2 МИН' },
+  { title: 'Придумай идеальную раскраску для байка', description: 'Назови основной цвет, второй цвет и одну деталь, которая будет выделяться.', category: 'DESIGN', difficulty: 'ЛЕГКО', time: '2 МИН' },
   { title: 'Вопрос: сколько секунд в одной минуте?', description: 'Впиши число или слово.', category: 'QUIZ', difficulty: 'ЛЕГКО', time: '30 СЕК', question: true, answers: ['60', 'шестьдесят', '60 секунд', 'шестьдесят секунд'] },
+  { title: 'Стой в планке 20 секунд', description: 'Только если тебе комфортно. Если нет — замени на 10 спокойных приседаний.', category: 'ACTIVE', difficulty: 'СРЕДНЕ', time: '20 СЕК' },
+  { title: 'Вопрос: сколько колёс у легкового автомобиля?', description: 'Впиши число или слово.', category: 'QUIZ', difficulty: 'ЛЕГКО', time: '30 СЕК', question: true, answers: ['4', 'четыре', '4 колеса', 'четыре колеса'] },
+  { title: 'Назови 5 вещей, которые берут в поездку', description: 'Подумай о полезных и безопасных вещах, которые пригодятся в дороге.', category: 'TRIP', difficulty: 'ЛЕГКО', time: '1 МИН' },
+  { title: 'Вопрос: какой цвет у стоп-сигналов автомобиля?', description: 'Впиши цвет.', category: 'QUIZ', difficulty: 'ЛЕГКО', time: '30 СЕК', question: true, answers: ['красный', 'красные', 'красного', 'красный цвет'] },
+  { title: 'Изобрази звук двигателя без слов', description: 'У тебя есть 10 секунд. Чем смешнее получится — тем лучше.', category: 'FUN', difficulty: 'ЛЕГКО', time: '10 СЕК' },
+  { title: 'Выбери цвет байка навсегда', description: 'Можно выбрать только один цвет. Объясни, почему именно он.', category: 'CHOICE', difficulty: 'ЛЕГКО', time: '1 МИН' },
+  { title: 'Назови 3 правила хорошей поездки', description: 'Сформулируй три коротких правила про безопасность, подготовку и уважение к другим.', category: 'ROAD', difficulty: 'ЛЕГКО', time: '2 МИН' },
   { title: 'Придумай задание для следующего игрока', description: 'Оно должно быть коротким, безопасным и выполнимым почти где угодно.', category: 'BOSS', difficulty: 'СРЕДНЕ', time: '3 МИН' }
 ];
 
@@ -201,6 +201,7 @@ const rouletteSpinLabel = document.getElementById('rouletteSpinLabel');
 const rouletteSpinText = document.getElementById('rouletteSpinText');
 const rouletteStatus = document.getElementById('rouletteStatus');
 const rouletteHint = document.getElementById('rouletteHint');
+const rouletteTries = document.getElementById('rouletteTries');
 const rouletteResult = document.getElementById('rouletteResult');
 const rouletteSelectedNote = document.getElementById('rouletteSelectedNote');
 const rouletteResultTitle = document.getElementById('rouletteResultTitle');
@@ -216,88 +217,100 @@ const taskAnswerInput = document.getElementById('taskAnswerInput');
 const taskAnswerCheck = document.getElementById('taskAnswerCheck');
 const taskAnswerFeedback = document.getElementById('taskAnswerFeedback');
 
-const ROULETTE_MAX_SPINS = 2;
-const ROULETTE_COOLDOWN_MS = 5 * 60 * 1000;
-const ROULETTE_STORAGE_KEY = 'samuil-task-roulette-v3';
-
+const MAX_SPINS_PER_ROUND = 2;
+const COOLDOWN_MS = 5 * 60 * 1000;
+const STORAGE_KEY = 'samuil-roulette-v4-fixed';
 let rouletteBusy = false;
 let rouletteLastWinner = -1;
 let currentTask = null;
-let rouletteTimerId = null;
-let rouletteState = { spinsUsed: 0, cooldownEnd: 0 };
+let rouletteState = { spinsLeft: MAX_SPINS_PER_ROUND, cooldownEnd: 0 };
 
 const wait = ms => new Promise(resolve => window.setTimeout(resolve, ms));
 
+const saveRouletteState = () => {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(rouletteState)); } catch (_) {}
+};
+
 const loadRouletteState = () => {
   try {
-    const saved = JSON.parse(localStorage.getItem(ROULETTE_STORAGE_KEY) || 'null');
-    if (saved && Number.isFinite(saved.spinsUsed) && Number.isFinite(saved.cooldownEnd)) {
-      rouletteState = { spinsUsed: Math.max(0, saved.spinsUsed), cooldownEnd: Math.max(0, saved.cooldownEnd) };
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
+    if (saved && Number.isFinite(saved.spinsLeft) && Number.isFinite(saved.cooldownEnd)) {
+      rouletteState.spinsLeft = Math.min(MAX_SPINS_PER_ROUND, Math.max(0, saved.spinsLeft));
+      rouletteState.cooldownEnd = Math.max(0, saved.cooldownEnd);
     }
   } catch (_) {}
-
   if (rouletteState.cooldownEnd && rouletteState.cooldownEnd <= Date.now()) {
-    rouletteState = { spinsUsed: 0, cooldownEnd: 0 };
+    rouletteState = { spinsLeft: MAX_SPINS_PER_ROUND, cooldownEnd: 0 };
     saveRouletteState();
   }
 };
 
-const saveRouletteState = () => {
-  try { localStorage.setItem(ROULETTE_STORAGE_KEY, JSON.stringify(rouletteState)); } catch (_) {}
+const normalizeAnswer = value => String(value || '')
+  .toLowerCase()
+  .replace(/ё/g, 'е')
+  .replace(/[.,!?;:()"'«»]/g, ' ')
+  .replace(/\s+/g, ' ')
+  .trim();
+
+const formatCooldown = ms => {
+  const total = Math.max(0, Math.ceil(ms / 1000));
+  const min = Math.floor(total / 60);
+  const sec = total % 60;
+  return `${String(min).padStart(2, '0')}:${String(sec).padStart(2, '0')}`;
 };
 
 const getCooldownLeft = () => Math.max(0, rouletteState.cooldownEnd - Date.now());
 
-const formatCooldown = ms => {
-  const totalSeconds = Math.max(0, Math.ceil(ms / 1000));
-  const minutes = Math.floor(totalSeconds / 60);
-  const seconds = totalSeconds % 60;
-  return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+const setTriesText = (html, cooldown = false) => {
+  if (!rouletteTries) return;
+  rouletteTries.classList.toggle('is-cooldown', cooldown);
+  rouletteTries.innerHTML = html;
 };
 
-const refreshRouletteButton = () => {
+const updateRouletteUI = () => {
   if (!rouletteSpin) return;
-  const cooldownLeft = getCooldownLeft();
 
-  if (cooldownLeft <= 0 && rouletteState.cooldownEnd) {
-    rouletteState = { spinsUsed: 0, cooldownEnd: 0 };
+  if (rouletteState.cooldownEnd && getCooldownLeft() <= 0) {
+    rouletteState = { spinsLeft: MAX_SPINS_PER_ROUND, cooldownEnd: 0 };
     saveRouletteState();
   }
 
   if (rouletteBusy) {
     rouletteSpin.disabled = true;
+    rouletteSpin.classList.remove('is-cooldown');
     if (rouletteSpinLabel) rouletteSpinLabel.textContent = 'РУЛЕТКА';
     if (rouletteSpinText) rouletteSpinText.textContent = 'КРУТИТСЯ…';
     return;
   }
 
-  if (rouletteState.cooldownEnd > Date.now()) {
-    const left = getCooldownLeft();
+  const cooldownLeft = getCooldownLeft();
+  if (cooldownLeft > 0) {
     rouletteSpin.disabled = true;
     rouletteSpin.classList.add('is-cooldown');
-    if (rouletteSpinLabel) rouletteSpinLabel.textContent = 'СЛЕДУЮЩИЕ 2 ПОПЫТКИ ЧЕРЕЗ';
-    if (rouletteSpinText) rouletteSpinText.textContent = formatCooldown(left);
-    if (rouletteStatus) rouletteStatus.textContent = 'ЛИМИТ ИСПОЛЬЗОВАН — ПЕРЕРЫВ 5 МИНУТ';
-    if (rouletteHint) rouletteHint.textContent = 'После таймера снова откроются две прокрутки. Обновление страницы таймер не сбрасывает.';
+    if (rouletteSpinLabel) rouletteSpinLabel.textContent = 'СНОВА МОЖНО КРУТИТЬ ЧЕРЕЗ';
+    if (rouletteSpinText) rouletteSpinText.textContent = formatCooldown(cooldownLeft);
+    if (rouletteStatus) rouletteStatus.textContent = '2 ПОПЫТКИ ИСПОЛЬЗОВАНЫ';
+    if (rouletteHint) rouletteHint.textContent = 'Идёт перерыв 5 минут. После таймера снова будут доступны 2 прокрутки.';
+    setTriesText(`<span>ПЕРЕЗАРЯДКА</span><b>${formatCooldown(cooldownLeft)}</b>`, true);
     return;
   }
 
   rouletteSpin.disabled = false;
   rouletteSpin.classList.remove('is-cooldown');
-  const remaining = Math.max(0, ROULETTE_MAX_SPINS - rouletteState.spinsUsed);
-  if (rouletteSpinLabel) rouletteSpinLabel.textContent = remaining === 1 ? 'ОСТАЛАСЬ 1 ПОПЫТКА' : 'ДОСТУПНО 2 ПОПЫТКИ';
+  if (rouletteSpinLabel) rouletteSpinLabel.textContent = rouletteState.spinsLeft === 1 ? 'ПОСЛЕДНЯЯ ПОПЫТКА' : 'ДОСТУПНО 2 ПОПЫТКИ';
   if (rouletteSpinText) rouletteSpinText.textContent = 'КРУТИТЬ';
-  if (rouletteStatus && rouletteState.spinsUsed === 0) rouletteStatus.textContent = currentTask ? 'МОЖНО КРУТИТЬ СНОВА — 2 ПОПЫТКИ' : 'РУЛЕТКА ГОТОВА';
-  if (rouletteHint) rouletteHint.textContent = 'Можно прокрутить рулетку два раза. После второй попытки включится таймер на 5 минут.';
+  if (rouletteHint) rouletteHint.textContent = 'Можно прокрутить 2 раза подряд. После второй попытки включится таймер на 5 минут.';
+  setTriesText(`<span>ПОПЫТКИ</span><b>${rouletteState.spinsLeft} / ${MAX_SPINS_PER_ROUND}</b>`);
 };
 
-const consumeRouletteSpin = () => {
-  rouletteState.spinsUsed += 1;
-  if (rouletteState.spinsUsed >= ROULETTE_MAX_SPINS) {
-    rouletteState.spinsUsed = ROULETTE_MAX_SPINS;
-    rouletteState.cooldownEnd = Date.now() + ROULETTE_COOLDOWN_MS;
+const consumeSpin = () => {
+  if (rouletteState.spinsLeft <= 0) return false;
+  rouletteState.spinsLeft -= 1;
+  if (rouletteState.spinsLeft === 0) {
+    rouletteState.cooldownEnd = Date.now() + COOLDOWN_MS;
   }
   saveRouletteState();
+  return true;
 };
 
 const createTaskReelItem = (task, index, extraClass = '') => {
@@ -314,8 +327,7 @@ const createTaskReelItem = (task, index, extraClass = '') => {
 const renderIdleReel = () => {
   if (!taskReel) return;
   taskReel.innerHTML = '';
-  const preview = [0, 1, 2, 3, 4].map(i => i % challengeTasks.length);
-  preview.forEach((idx, pos) => taskReel.appendChild(createTaskReelItem(challengeTasks[idx], idx, pos === 2 ? 'is-center' : '')));
+  [0,1,2,3,4].forEach((idx, pos) => taskReel.appendChild(createTaskReelItem(challengeTasks[idx], idx, pos === 2 ? 'is-center' : '')));
   taskReel.style.transition = 'none';
   taskReel.style.transform = 'translateY(0)';
 };
@@ -328,10 +340,11 @@ const resetAnswerBox = () => {
   }
 };
 
-const showChallengeWinner = (index) => {
+const showWinner = index => {
   const task = challengeTasks[index];
   currentTask = task;
   rouletteLastWinner = index;
+
   if (taskResultNumber) taskResultNumber.textContent = String(index + 1).padStart(2, '0');
   if (taskResultCategory) taskResultCategory.textContent = task.category;
   if (rouletteResultTitle) rouletteResultTitle.textContent = task.title;
@@ -340,60 +353,57 @@ const showChallengeWinner = (index) => {
   if (taskResultTime) taskResultTime.textContent = task.time;
 
   resetAnswerBox();
-  if (taskAnswerBox) taskAnswerBox.hidden = !task.question;
-  if (task.question && taskAnswerInput) window.setTimeout(() => taskAnswerInput.focus({ preventScroll: true }), 450);
+  if (taskAnswerBox) {
+    taskAnswerBox.hidden = !task.question;
+    taskAnswerBox.classList.toggle('is-question-visible', Boolean(task.question));
+  }
 
   if (rouletteResult) {
     rouletteResult.classList.add('is-visible');
     rouletteResult.setAttribute('aria-hidden', 'false');
   }
   if (rouletteSelectedNote) rouletteSelectedNote.hidden = false;
+
+  if (rouletteStatus) rouletteStatus.textContent = 'ЗАДАНИЕ ВЫБРАНО';
+  if (task.question && taskAnswerInput) {
+    window.setTimeout(() => taskAnswerInput.focus({ preventScroll: true }), 350);
+  }
 };
 
-const normalizeAnswer = value => value
-  .toLowerCase()
-  .replace(/ё/g, 'е')
-  .replace(/[.,!?;:()"'«»]/g, ' ')
-  .replace(/\s+/g, ' ')
-  .trim();
-
-const checkCurrentAnswer = () => {
+const checkAnswer = () => {
   if (!currentTask?.question || !taskAnswerInput || !taskAnswerFeedback) return;
   const given = normalizeAnswer(taskAnswerInput.value);
-
   if (!given) {
-    taskAnswerFeedback.textContent = 'Сначала впиши ответ.';
+    taskAnswerFeedback.textContent = 'СНАЧАЛА ВПИШИ ОТВЕТ';
     taskAnswerFeedback.className = 'task-answer-feedback is-neutral';
     return;
   }
-
   const correct = currentTask.answers.some(answer => normalizeAnswer(answer) === given);
-  if (correct) {
-    taskAnswerFeedback.textContent = '✓ ОТВЕТ ВЕРНЫЙ';
-    taskAnswerFeedback.className = 'task-answer-feedback is-correct';
-  } else {
-    taskAnswerFeedback.textContent = '✕ ОТВЕТ НЕВЕРНЫЙ';
-    taskAnswerFeedback.className = 'task-answer-feedback is-wrong';
-  }
+  taskAnswerFeedback.textContent = correct ? '✓ ОТВЕТ ВЕРНЫЙ' : '✕ ОТВЕТ НЕВЕРНЫЙ';
+  taskAnswerFeedback.className = `task-answer-feedback ${correct ? 'is-correct' : 'is-wrong'}`;
 };
 
-const buildSpinSequence = winner => {
+const buildSequence = winner => {
   const sequence = [];
-  const count = 38;
-  for (let i = 0; i < count - 1; i += 1) {
+  for (let i = 0; i < 34; i += 1) {
     let idx = Math.floor(Math.random() * challengeTasks.length);
-    if (sequence.length && idx === sequence[sequence.length - 1]) idx = (idx + 1) % challengeTasks.length;
+    if (sequence.length && idx === sequence.at(-1)) idx = (idx + 1) % challengeTasks.length;
     sequence.push(idx);
   }
   sequence.push(winner);
   return sequence;
 };
 
-const spinChallengeRoulette = async () => {
-  if (rouletteBusy || !taskReel || !rouletteSpin || getCooldownLeft() > 0) return;
+const spinRoulette = async () => {
+  if (rouletteBusy || !taskReel || !rouletteSpin) return;
+  if (getCooldownLeft() > 0 || rouletteState.spinsLeft <= 0) {
+    updateRouletteUI();
+    return;
+  }
+  if (!consumeSpin()) return;
+
   rouletteBusy = true;
-  consumeRouletteSpin();
-  refreshRouletteButton();
+  updateRouletteUI();
   rouletteMachine?.classList.add('is-spinning');
   rouletteResult?.classList.remove('is-visible');
   rouletteResult?.setAttribute('aria-hidden', 'true');
@@ -403,52 +413,35 @@ const spinChallengeRoulette = async () => {
   if (rouletteStatus) rouletteStatus.textContent = 'ЗАДАНИЯ ПРОКРУЧИВАЮТСЯ…';
 
   let winner = Math.floor(Math.random() * challengeTasks.length);
-  if (challengeTasks.length > 1 && winner === rouletteLastWinner) {
-    winner = (winner + 1 + Math.floor(Math.random() * (challengeTasks.length - 1))) % challengeTasks.length;
-  }
+  if (challengeTasks.length > 1 && winner === rouletteLastWinner) winner = (winner + 1) % challengeTasks.length;
 
-  const sequence = buildSpinSequence(winner);
+  const sequence = buildSequence(winner);
   taskReel.innerHTML = '';
-  sequence.forEach((idx, pos) => {
-    const cls = pos === sequence.length - 1 ? 'is-winner' : '';
-    taskReel.appendChild(createTaskReelItem(challengeTasks[idx], idx, cls));
-  });
+  sequence.forEach((idx, pos) => taskReel.appendChild(createTaskReelItem(challengeTasks[idx], idx, pos === sequence.length - 1 ? 'is-winner' : '')));
 
   const itemHeight = window.innerWidth <= 620 ? 104 : 118;
-  const visibleCenterIndex = sequence.length - 1;
-  const viewportCenterOffset = itemHeight;
-  const targetY = -(visibleCenterIndex * itemHeight) + viewportCenterOffset;
-
+  const targetY = -((sequence.length - 1) * itemHeight) + itemHeight;
   taskReel.style.transition = 'none';
   taskReel.style.transform = 'translateY(0)';
   void taskReel.offsetHeight;
-  taskReel.style.transition = 'transform 4.2s cubic-bezier(.08,.68,.08,1)';
-  requestAnimationFrame(() => {
-    taskReel.style.transform = `translateY(${targetY}px)`;
-  });
+  taskReel.style.transition = 'transform 3.8s cubic-bezier(.08,.68,.08,1)';
+  requestAnimationFrame(() => { taskReel.style.transform = `translateY(${targetY}px)`; });
 
-  await wait(4300);
+  await wait(3900);
   rouletteMachine?.classList.remove('is-spinning');
   rouletteBusy = false;
-  showChallengeWinner(winner);
-
-  if (rouletteState.cooldownEnd > Date.now()) {
-    if (rouletteStatus) rouletteStatus.textContent = 'ЗАДАНИЕ ВЫБРАНО — ВКЛЮЧЁН ПЕРЕРЫВ';
-  } else {
-    const remaining = Math.max(0, ROULETTE_MAX_SPINS - rouletteState.spinsUsed);
-    if (rouletteStatus) rouletteStatus.textContent = `ЗАДАНИЕ ВЫБРАНО — ЕЩЁ ${remaining} ПРОКРУТКА`;
-  }
-  refreshRouletteButton();
+  showWinner(winner);
+  updateRouletteUI();
 };
 
 loadRouletteState();
 renderIdleReel();
-refreshRouletteButton();
-rouletteTimerId = window.setInterval(refreshRouletteButton, 500);
-rouletteSpin?.addEventListener('click', spinChallengeRoulette);
-taskAnswerCheck?.addEventListener('click', checkCurrentAnswer);
+updateRouletteUI();
+window.setInterval(updateRouletteUI, 250);
+rouletteSpin?.addEventListener('click', spinRoulette);
+taskAnswerCheck?.addEventListener('click', checkAnswer);
 taskAnswerInput?.addEventListener('keydown', event => {
-  if (event.key === 'Enter') checkCurrentAnswer();
+  if (event.key === 'Enter') checkAnswer();
 });
 
 challengeShare?.addEventListener('click', async () => {
@@ -465,4 +458,3 @@ challengeShare?.addEventListener('click', async () => {
     }
   } catch (_) {}
 });
-
