@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260912-roulette4" />
+  <link rel="stylesheet" href="styles.css?v=20260912-quiz5" />
 </head>
 <body class="intro-active">
 
@@ -323,16 +323,16 @@
     <section class="section roulette-section" id="roulette">
       <div class="section-head roulette-head">
         <div>
-          <div class="section-kicker reveal">05 / TASK ROULETTE</div>
-          <h2 class="section-title reveal">КРУТИ.<br><span>ВЫПОЛНЯЙ.</span></h2>
+          <div class="section-kicker reveal">05 / QUIZ ROULETTE</div>
+          <h2 class="section-title reveal">КРУТИ.<br><span>ОТВЕЧАЙ.</span></h2>
         </div>
-        <p class="section-note reveal">Никаких видео внутри рулетки — только текстовые задания. Нажми кнопку: задания быстро прокрутятся и рулетка остановится на одном случайном челлендже.</p>
+        <p class="section-note reveal">Теперь в рулетке только вопросы. Нажми кнопку: вопросы быстро прокрутятся, выпадет один случайный вопрос — впиши ответ и проверь себя.</p>
       </div>
 
       <div class="roulette-machine reveal" id="rouletteMachine">
         <div class="roulette-machine-top">
-          <div class="roulette-machine-brand"><span class="live-dot"></span><b>SP / TASK MODE</b></div>
-          <div class="roulette-pool" id="roulettePool" aria-live="polite"><span>POOL</span><strong>24 ЗАДАНИЯ</strong></div>
+          <div class="roulette-machine-brand"><span class="live-dot"></span><b>SP / QUIZ MODE</b></div>
+          <div class="roulette-pool" id="roulettePool" aria-live="polite"><span>POOL</span><strong>24 ВОПРОСА</strong></div>
         </div>
 
         <div class="roulette-stage task-slot-stage">
@@ -347,15 +347,15 @@
 
           <div class="task-slot-side" aria-hidden="true">
             <span>RANDOM</span>
-            <b>CHALLENGE</b>
-            <small>TEXT ONLY</small>
+            <b>QUESTION</b>
+            <small>QUIZ ONLY</small>
           </div>
           <div class="roulette-speed" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
         </div>
 
         <div class="roulette-controls">
           <div class="roulette-copy">
-            <small>SAMUIL TASK GENERATOR</small>
+            <small>SAMUIL QUIZ GENERATOR</small>
             <strong id="rouletteStatus">РУЛЕТКА ГОТОВА</strong>
             <p id="rouletteHint">Можно прокрутить 2 раза подряд. После второй попытки включится таймер на 5 минут.</p>
             <div class="roulette-tries" id="rouletteTries"><span>ПОПЫТКИ</span><b>2 / 2</b></div>
@@ -369,18 +369,18 @@
 
       <div class="roulette-result challenge-result" id="rouletteResult" aria-live="polite" aria-hidden="true">
         <div class="roulette-result-media task-result-visual">
-          <span class="roulette-result-badge">ВЫПАЛО</span>
+          <span class="roulette-result-badge">ВОПРОС</span>
           <div class="task-result-number" id="taskResultNumber">01</div>
           <div class="task-result-category" id="taskResultCategory">FUN</div>
         </div>
         <div class="roulette-result-copy">
-          <small>ТВОЁ ЗАДАНИЕ</small>
-          <h3 id="rouletteResultTitle">Крути рулетку и получи задание</h3>
-          <p id="taskResultDescription">После остановки рулетки здесь появится полный текст задания.</p>
+          <small>ТВОЙ ВОПРОС</small>
+          <h3 id="rouletteResultTitle">Крути рулетку и получи вопрос</h3>
+          <p id="taskResultDescription">После остановки рулетки здесь появится вопрос. Впиши ответ ниже.</p>
           <div class="task-meta"><span id="taskResultDifficulty">ЛЕГКО</span><span>•</span><span id="taskResultTime">2 МИН</span></div>
 
           <div class="task-answer-box" id="taskAnswerBox" hidden>
-            <label for="taskAnswerInput"><span>?</span> ЭТО ВОПРОС — ВВЕДИ ОТВЕТ</label>
+            <label for="taskAnswerInput"><span>?</span> ВВЕДИ СВОЙ ОТВЕТ</label>
             <div class="task-answer-row">
               <input id="taskAnswerInput" type="text" placeholder="Твой ответ…" autocomplete="off" spellcheck="false">
               <button class="task-answer-check" id="taskAnswerCheck" type="button">ПРОВЕРИТЬ</button>
@@ -389,14 +389,14 @@
           </div>
 
           <div class="roulette-result-actions">
-            <button class="btn btn-primary" id="challengeShare" type="button">Поделиться заданием <span>↗</span></button>
+            <button class="btn btn-primary" id="challengeShare" type="button">Поделиться вопросом <span>↗</span></button>
           </div>
         </div>
       </div>
 
-      <div class="roulette-selected-note" id="rouletteSelectedNote" hidden aria-live="polite"><span>✓</span> ЗАДАНИЕ ВЫБРАНО</div>
+      <div class="roulette-selected-note" id="rouletteSelectedNote" hidden aria-live="polite"><span>✓</span> ВОПРОС ВЫБРАН</div>
 
-      <p class="micro-note reveal roulette-note">Сейчас это набор заданий для сайта в стиле Samuil Pashyan. Если Самуил пришлёт свой официальный список заданий, его можно просто подставить в эту же рулетку.</p>
+      <p class="micro-note reveal roulette-note">Все варианты в рулетке — вопросы с проверкой ответа. За правильный ответ включается BOOST-эффект. После двух прокруток рулетка уходит на перезарядку на 5 минут.</p>
     </section>
 
     <section class="section live-section" id="subscribers">
@@ -563,6 +563,6 @@
     <p id="lightboxCaption"></p>
   </div>
 
-  <script src="script.js?v=20260912-roulette4"></script>
+  <script src="script.js?v=20260912-quiz5"></script>
 </body>
 </html>
