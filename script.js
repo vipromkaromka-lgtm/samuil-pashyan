@@ -167,28 +167,32 @@ window.addEventListener('keydown', e => {
 });
 
 
-// ===== CHALLENGE ROULETTE =====
+// ===== TEXT TASK ROULETTE =====
 const challengeTasks = [
-  { title: 'Сними 10-секундный cinematic-кадр своей техники', description: 'Мотоцикл, машина, велосипед или самокат — техника стоит на месте, а ты снимаешь красивый короткий кадр.', category: 'CREATIVE', difficulty: 'ЛЁГКО', time: '5 МИН' },
-  { title: 'Сделай фото в стиле обложки мотоблога', description: 'Выбери интересный ракурс, фон и попробуй сделать кадр, который мог бы стать превью ролика.', category: 'PHOTO', difficulty: 'ЛЁГКО', time: '5 МИН' },
-  { title: 'Собери свой топ-3 техники мечты', description: 'Выбери три мотоцикла или машины и коротко объясни, почему каждая попала в твой список.', category: 'GARAGE', difficulty: 'ЛЁГКО', time: '3 МИН' },
-  { title: 'Нарисуй дизайн мотоцикла за 3 минуты', description: 'Бумага или заметки в телефоне — придумай раскраску, номер и стиль своего идеального проекта.', category: 'CREATIVE', difficulty: 'СРЕДНЕ', time: '3 МИН' },
-  { title: 'Назови 5 марок мотоциклов за 10 секунд', description: 'Запусти таймер и попробуй уложиться. Повторять одну марку дважды нельзя.', category: 'SPEED', difficulty: 'СРЕДНЕ', time: '10 СЕК' },
-  { title: 'Сделай фото «до / после» чистки техники', description: 'Подойдёт велосипед, самокат, мотоцикл или автомобиль. Безопасно приведи его в порядок и сравни результат.', category: 'GARAGE', difficulty: 'СРЕДНЕ', time: '15 МИН' },
-  { title: 'Придумай название для будущего мотопроекта', description: 'Название должно звучать так, будто это новый проект для YouTube. Чем необычнее — тем лучше.', category: 'CREATIVE', difficulty: 'ЛЁГКО', time: '2 МИН' },
-  { title: 'Найди старый ролик Самуила, который ещё не смотрел', description: 'Открой канал, пролистай назад и выбери видео, которое раньше пропустил.', category: 'WATCH', difficulty: 'ЛЁГКО', time: '10 МИН' },
-  { title: 'Сделай мото- или авто-мем', description: 'Используй свою фотографию или придумай текстовый мем про поездки, ремонт или вечный выбор техники.', category: 'MEME', difficulty: 'ЛЁГКО', time: '5 МИН' },
-  { title: 'Сними 15 секунд «мой транспорт сегодня»', description: 'Покажи свой транспорт красивыми статичными планами. Никакой съёмки во время опасного движения.', category: 'VIDEO', difficulty: 'ЛЁГКО', time: '5 МИН' },
-  { title: 'Устрой угадайку марки техники по фото', description: 'Покажи другу фрагмент фотографии мотоцикла или машины и дай три попытки угадать марку.', category: 'GAME', difficulty: 'ЛЁГКО', time: '5 МИН' },
-  { title: 'Придумай челлендж для Самуила', description: 'Сформулируй безопасную идею для будущего ролика и оставь её ниже в гостевой книге сайта.', category: 'IDEA', difficulty: 'СРЕДНЕ', time: '5 МИН' },
-  { title: 'Выбери: эндуро, супермото или дрифт', description: 'Можно выбрать только один вариант. Объясни свой выбор одним предложением.', category: 'CHOICE', difficulty: 'ЛЁГКО', time: '1 МИН' },
-  { title: 'Сделай обои телефона из фото любимой техники', description: 'Возьми свою фотографию или разрешённое изображение и оформи простой wallpaper.', category: 'DESIGN', difficulty: 'СРЕДНЕ', time: '10 МИН' },
-  { title: 'Посмотри один старый ролик Самуила до конца', description: 'Выбери видео, которое давно не видел, и попробуй найти момент, который раньше не замечал.', category: 'WATCH', difficulty: 'ЛЁГКО', time: '15 МИН' },
-  { title: 'Составь мини-плейлист из 3 роликов Самуила', description: 'Выбери три видео, с которых ты бы посоветовал начать знакомство с каналом.', category: 'WATCH', difficulty: 'ЛЁГКО', time: '5 МИН' },
-  { title: 'Покажи этот сайт одному другу', description: 'Отправь ссылку человеку, которому нравятся мотоциклы, машины или автомобильные ролики.', category: 'SOCIAL', difficulty: 'ЛЁГКО', time: '1 МИН' },
-  { title: 'Придумай слоган канала за 30 секунд', description: 'Короткая фраза — максимум 6 слов. Она должна передавать скорость, технику и приключения.', category: 'SPEED', difficulty: 'СРЕДНЕ', time: '30 СЕК' },
-  { title: 'Выбери лучшее фото в галерее сайта', description: 'Открой галерею, посмотри все фотографии крупно и выбери одну любимую.', category: 'PHOTO', difficulty: 'ЛЁГКО', time: '2 МИН' },
-  { title: 'Придумай идею превью для следующего ролика', description: 'Опиши кадр, крупный текст и главный объект будущей обложки YouTube.', category: 'DESIGN', difficulty: 'СРЕДНЕ', time: '5 МИН' }
+  { title: 'Назови 7 марок мотоциклов за 15 секунд', description: 'Включи таймер. Повторять одну и ту же марку нельзя.', category: 'SPEED', difficulty: 'СРЕДНЕ', time: '15 СЕК' },
+  { title: 'Придумай название для своего мотопроекта', description: 'Короткое, запоминающееся и такое, чтобы его хотелось увидеть на наклейке.', category: 'IDEA', difficulty: 'ЛЕГКО', time: '2 МИН' },
+  { title: 'Нарисуй мотоцикл мечты за 3 минуты', description: 'Не важен талант художника — добавь цвет, номер и одну необычную деталь.', category: 'DRAW', difficulty: 'СРЕДНЕ', time: '3 МИН' },
+  { title: 'Сделай 15 приседаний', description: 'Небольшой безопасный физический челлендж. Делай в комфортном темпе.', category: 'ACTIVE', difficulty: 'ЛЕГКО', time: '1 МИН' },
+  { title: 'Выбери только одно: эндуро, супермото или спортбайк', description: 'Выбери один вариант и объясни свой выбор одним предложением.', category: 'CHOICE', difficulty: 'ЛЕГКО', time: '1 МИН' },
+  { title: 'Придумай номер для гоночного мотоцикла', description: 'Выбери число от 1 до 999 и придумай, почему именно оно.', category: 'STYLE', difficulty: 'ЛЕГКО', time: '1 МИН' },
+  { title: 'Назови 5 деталей мотоцикла за 10 секунд', description: 'Например: руль, цепь, колесо — но твои ответы должны быть другими.', category: 'SPEED', difficulty: 'СРЕДНЕ', time: '10 СЕК' },
+  { title: 'Сделай самое серьёзное байкерское фото', description: 'Можно рядом с велосипедом, самокатом, машиной или мотоциклом. Техника должна стоять.', category: 'PHOTO', difficulty: 'ЛЕГКО', time: '5 МИН' },
+  { title: 'Придумай смешной штраф за проигрыш в челлендже', description: 'Только безопасный и добрый вариант — без боли, унижения и риска.', category: 'FUN', difficulty: 'ЛЕГКО', time: '2 МИН' },
+  { title: 'Составь топ-3 транспорта мечты', description: 'Любые три варианта: мотоциклы, машины, квадроциклы или что-то ещё.', category: 'GARAGE', difficulty: 'ЛЕГКО', time: '3 МИН' },
+  { title: 'Придумай идеальную раскраску для байка', description: 'Назови основной цвет, второй цвет и одну деталь, которая будет выделяться.', category: 'DESIGN', difficulty: 'ЛЕГКО', time: '2 МИН' },
+  { title: 'Стой в планке 20 секунд', description: 'Только если тебе комфортно. Если нет — замени на 10 спокойных приседаний.', category: 'ACTIVE', difficulty: 'СРЕДНЕ', time: '20 СЕК' },
+  { title: 'Придумай слоган из четырёх слов', description: 'Он должен звучать как слоган для команды, гаража или мотоклуба.', category: 'WORDS', difficulty: 'СРЕДНЕ', time: '2 МИН' },
+  { title: 'Назови 5 вещей, которые берут в поездку', description: 'Подумай о полезных и безопасных вещах, которые пригодятся в дороге.', category: 'TRIP', difficulty: 'ЛЕГКО', time: '1 МИН' },
+  { title: 'Изобрази звук двигателя без слов', description: 'У тебя есть 10 секунд. Чем смешнее получится — тем лучше.', category: 'FUN', difficulty: 'ЛЕГКО', time: '10 СЕК' },
+  { title: 'Придумай название для нового гаража', description: 'Оно должно хорошо смотреться на вывеске или логотипе.', category: 'IDEA', difficulty: 'ЛЕГКО', time: '2 МИН' },
+  { title: 'Выбери цвет байка навсегда', description: 'Можно выбрать только один цвет. Объясни, почему именно он.', category: 'CHOICE', difficulty: 'ЛЕГКО', time: '1 МИН' },
+  { title: 'Сделай 10 отжиманий от стены', description: 'Лёгкий вариант задания. Двигайся спокойно и остановись, если некомфортно.', category: 'ACTIVE', difficulty: 'ЛЕГКО', time: '1 МИН' },
+  { title: 'Придумай самый странный аксессуар для мотоцикла', description: 'Он может быть абсолютно бесполезным — главное, чтобы идея была смешной.', category: 'FUN', difficulty: 'ЛЕГКО', time: '2 МИН' },
+  { title: 'Угадай цену мотоцикла мечты', description: 'Сначала назови цену наугад, а потом можешь проверить, насколько близко попал.', category: 'GUESS', difficulty: 'СРЕДНЕ', time: '2 МИН' },
+  { title: 'Назови 3 правила хорошей поездки', description: 'Сформулируй три коротких правила про безопасность, подготовку и уважение к другим.', category: 'ROAD', difficulty: 'ЛЕГКО', time: '2 МИН' },
+  { title: 'Придумай необычный номерной знак', description: 'До 8 символов. Он должен быть связан с техникой или твоим ником.', category: 'STYLE', difficulty: 'ЛЕГКО', time: '2 МИН' },
+  { title: 'Сделай фото одной детали техники крупным планом', description: 'Найди интересную форму или фактуру. Транспорт должен стоять и быть безопасно припаркован.', category: 'PHOTO', difficulty: 'ЛЕГКО', time: '5 МИН' },
+  { title: 'Придумай задание для следующего игрока', description: 'Оно должно быть коротким, безопасным и выполнимым почти где угодно.', category: 'BOSS', difficulty: 'СРЕДНЕ', time: '3 МИН' }
 ];
 
 const rouletteMachine = document.getElementById('rouletteMachine');
@@ -202,15 +206,34 @@ const taskResultNumber = document.getElementById('taskResultNumber');
 const taskResultCategory = document.getElementById('taskResultCategory');
 const taskResultDifficulty = document.getElementById('taskResultDifficulty');
 const taskResultTime = document.getElementById('taskResultTime');
-const challengeWheel = document.getElementById('challengeWheel');
+const taskReel = document.getElementById('taskReel');
 const challengeShare = document.getElementById('challengeShare');
 
 let rouletteBusy = false;
 let rouletteLastWinner = -1;
-let wheelRotation = 0;
 let currentTask = null;
 
 const wait = ms => new Promise(resolve => window.setTimeout(resolve, ms));
+
+const createTaskReelItem = (task, index, extraClass = '') => {
+  const item = document.createElement('div');
+  item.className = `task-reel-item ${extraClass}`.trim();
+  item.innerHTML = `
+    <span class="task-reel-number">${String(index + 1).padStart(2, '0')}</span>
+    <span class="task-reel-category">${task.category}</span>
+    <strong>${task.title}</strong>
+  `;
+  return item;
+};
+
+const renderIdleReel = () => {
+  if (!taskReel) return;
+  taskReel.innerHTML = '';
+  const preview = [0, 1, 2, 3, 4].map(i => i % challengeTasks.length);
+  preview.forEach((idx, pos) => taskReel.appendChild(createTaskReelItem(challengeTasks[idx], idx, pos === 2 ? 'is-center' : '')));
+  taskReel.style.transition = 'none';
+  taskReel.style.transform = 'translateY(0)';
+};
 
 const showChallengeWinner = (index) => {
   const task = challengeTasks[index];
@@ -228,24 +251,51 @@ const showChallengeWinner = (index) => {
   }
 };
 
+const buildSpinSequence = winner => {
+  const sequence = [];
+  const count = 38;
+  for (let i = 0; i < count - 1; i += 1) {
+    let idx = Math.floor(Math.random() * challengeTasks.length);
+    if (sequence.length && idx === sequence[sequence.length - 1]) idx = (idx + 1) % challengeTasks.length;
+    sequence.push(idx);
+  }
+  sequence.push(winner);
+  return sequence;
+};
+
 const spinChallengeRoulette = async () => {
-  if (rouletteBusy || !challengeWheel) return;
+  if (rouletteBusy || !taskReel || !rouletteSpin) return;
   rouletteBusy = true;
   rouletteSpin.disabled = true;
   rouletteMachine?.classList.add('is-spinning');
   rouletteResult?.classList.remove('is-visible');
   rouletteResult?.setAttribute('aria-hidden', 'true');
-  if (rouletteStatus) rouletteStatus.textContent = 'РУЛЕТКА КРУТИТСЯ…';
+  if (rouletteStatus) rouletteStatus.textContent = 'ЗАДАНИЯ ПРОКРУЧИВАЮТСЯ…';
 
   let winner = Math.floor(Math.random() * challengeTasks.length);
   if (challengeTasks.length > 1 && winner === rouletteLastWinner) {
     winner = (winner + 1 + Math.floor(Math.random() * (challengeTasks.length - 1))) % challengeTasks.length;
   }
 
-  const extraTurns = 6 + Math.floor(Math.random() * 4);
-  const offset = Math.floor(Math.random() * 360);
-  wheelRotation += extraTurns * 360 + offset;
-  challengeWheel.style.transform = `rotate(${wheelRotation}deg)`;
+  const sequence = buildSpinSequence(winner);
+  taskReel.innerHTML = '';
+  sequence.forEach((idx, pos) => {
+    const cls = pos === sequence.length - 1 ? 'is-winner' : '';
+    taskReel.appendChild(createTaskReelItem(challengeTasks[idx], idx, cls));
+  });
+
+  const itemHeight = window.innerWidth <= 620 ? 104 : 118;
+  const visibleCenterIndex = sequence.length - 1;
+  const viewportCenterOffset = itemHeight;
+  const targetY = -(visibleCenterIndex * itemHeight) + viewportCenterOffset;
+
+  taskReel.style.transition = 'none';
+  taskReel.style.transform = 'translateY(0)';
+  void taskReel.offsetHeight;
+  taskReel.style.transition = 'transform 4.2s cubic-bezier(.08,.68,.08,1)';
+  requestAnimationFrame(() => {
+    taskReel.style.transform = `translateY(${targetY}px)`;
+  });
 
   await wait(4300);
   rouletteMachine?.classList.remove('is-spinning');
@@ -255,6 +305,7 @@ const spinChallengeRoulette = async () => {
   showChallengeWinner(winner);
 };
 
+renderIdleReel();
 rouletteSpin?.addEventListener('click', spinChallengeRoulette);
 rouletteAgain?.addEventListener('click', () => {
   rouletteMachine?.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -266,7 +317,7 @@ challengeShare?.addEventListener('click', async () => {
   const text = `Мне выпало задание на сайте Samuil Pashyan: «${currentTask.title}» — ${currentTask.description}`;
   try {
     if (navigator.share) {
-      await navigator.share({ title: 'Samuil Challenge Roulette', text, url: window.location.href });
+      await navigator.share({ title: 'Samuil Task Roulette', text, url: window.location.href });
     } else {
       await navigator.clipboard.writeText(`${text}\n${window.location.href}`);
       const old = challengeShare.innerHTML;
@@ -275,3 +326,4 @@ challengeShare?.addEventListener('click', async () => {
     }
   } catch (_) {}
 });
+
