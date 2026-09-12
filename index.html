@@ -320,68 +320,71 @@
       </div>
     </section>
 
-
     <section class="section roulette-section" id="roulette">
       <div class="section-head roulette-head">
         <div>
-          <div class="section-kicker reveal">05 / VIDEO ROULETTE</div>
-          <h2 class="section-title reveal">КРУТИ.<br><span>СМОТРИ.</span></h2>
+          <div class="section-kicker reveal">05 / TASK ROULETTE</div>
+          <h2 class="section-title reveal">КРУТИ.<br><span>ВЫПОЛНЯЙ.</span></h2>
         </div>
-        <p class="section-note reveal">Рулетка подключается к публичному плейлисту загрузок канала Samuil Pashyan. Нажми кнопку — сайт перемешает доступные ролики и случайно выберет один.</p>
+        <p class="section-note reveal">Никаких видео внутри рулетки — только текстовые задания. Нажми кнопку: задания быстро прокрутятся и рулетка остановится на одном случайном челлендже.</p>
       </div>
 
       <div class="roulette-machine reveal" id="rouletteMachine">
         <div class="roulette-machine-top">
-          <div class="roulette-machine-brand"><span class="live-dot"></span><b>SP / RANDOM RIDE</b></div>
-          <div class="roulette-pool" id="roulettePool" aria-live="polite"><span>POOL</span><strong>LOADING…</strong></div>
+          <div class="roulette-machine-brand"><span class="live-dot"></span><b>SP / TASK MODE</b></div>
+          <div class="roulette-pool" id="roulettePool" aria-live="polite"><span>POOL</span><strong>24 ЗАДАНИЯ</strong></div>
         </div>
 
-        <div class="roulette-stage">
-          <div class="roulette-scanline" aria-hidden="true"></div>
-          <div class="roulette-pointer roulette-pointer-top" aria-hidden="true"></div>
-          <div class="roulette-pointer roulette-pointer-bottom" aria-hidden="true"></div>
-          <div class="roulette-reel" id="rouletteReel" aria-label="Лента случайных видео">
-            <article class="roulette-tile is-side" data-roulette-slot="0"><img alt="" loading="lazy"><span>SP</span></article>
-            <article class="roulette-tile" data-roulette-slot="1"><img alt="" loading="lazy"><span>SP</span></article>
-            <article class="roulette-tile is-center" data-roulette-slot="2"><img alt="" loading="lazy"><span>SP</span></article>
-            <article class="roulette-tile" data-roulette-slot="3"><img alt="" loading="lazy"><span>SP</span></article>
-            <article class="roulette-tile is-side" data-roulette-slot="4"><img alt="" loading="lazy"><span>SP</span></article>
+        <div class="roulette-stage task-slot-stage">
+          <div class="task-reel-shell">
+            <div class="task-reel-fade task-reel-fade-top" aria-hidden="true"></div>
+            <div class="task-reel-marker" aria-hidden="true"><span>ВЫПАДЕТ</span></div>
+            <div class="task-reel-window" id="taskReelWindow">
+              <div class="task-reel" id="taskReel" aria-live="polite"></div>
+            </div>
+            <div class="task-reel-fade task-reel-fade-bottom" aria-hidden="true"></div>
+          </div>
+
+          <div class="task-slot-side" aria-hidden="true">
+            <span>RANDOM</span>
+            <b>CHALLENGE</b>
+            <small>TEXT ONLY</small>
           </div>
           <div class="roulette-speed" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
         </div>
 
         <div class="roulette-controls">
           <div class="roulette-copy">
-            <small>RANDOM VIDEO SELECTOR</small>
-            <strong id="rouletteStatus">ЗАГРУЖАЕМ ВИДЕО КАНАЛА…</strong>
-            <p id="rouletteHint">Если YouTube временно не отдаст список загрузок, рулетка автоматически использует резервный набор роликов с сайта.</p>
+            <small>SAMUIL TASK GENERATOR</small>
+            <strong id="rouletteStatus">РУЛЕТКА ГОТОВА</strong>
+            <p id="rouletteHint">В рулетке только безопасные текстовые задания. Если выпавшее задание не подходит — крути ещё раз.</p>
           </div>
-          <button class="roulette-spin magnetic" id="rouletteSpin" type="button" disabled>
+          <button class="roulette-spin magnetic" id="rouletteSpin" type="button">
             <span class="roulette-spin-icon">↻</span>
             <span><small>PRESS TO</small><b>КРУТИТЬ</b></span>
           </button>
         </div>
       </div>
 
-      <div class="roulette-result" id="rouletteResult" aria-live="polite" aria-hidden="true">
-        <div class="roulette-result-media">
-          <img id="rouletteResultImage" src="" alt="Превью выпавшего видео">
+      <div class="roulette-result challenge-result" id="rouletteResult" aria-live="polite" aria-hidden="true">
+        <div class="roulette-result-media task-result-visual">
           <span class="roulette-result-badge">ВЫПАЛО</span>
-          <span class="roulette-result-play">▶</span>
+          <div class="task-result-number" id="taskResultNumber">01</div>
+          <div class="task-result-category" id="taskResultCategory">FUN</div>
         </div>
         <div class="roulette-result-copy">
-          <small>YOUR RANDOM RIDE</small>
-          <h3 id="rouletteResultTitle">Случайное видео Samuil Pashyan</h3>
-          <p>Рулетка выбрала этот ролик из публичных видео канала.</p>
+          <small>ТВОЁ ЗАДАНИЕ</small>
+          <h3 id="rouletteResultTitle">Крути рулетку и получи задание</h3>
+          <p id="taskResultDescription">После остановки рулетки здесь появится полный текст задания.</p>
+          <div class="task-meta"><span id="taskResultDifficulty">ЛЕГКО</span><span>•</span><span id="taskResultTime">2 МИН</span></div>
           <div class="roulette-result-actions">
-            <a class="btn btn-primary" id="rouletteResultLink" href="https://www.youtube.com/@samuilpashyan" target="_blank" rel="noreferrer">Смотреть видео <span>▶</span></a>
+            <button class="btn btn-primary" id="challengeShare" type="button">Поделиться заданием <span>↗</span></button>
             <button class="btn btn-ghost" id="rouletteAgain" type="button">Крутить ещё ↻</button>
           </div>
         </div>
       </div>
 
-      <div id="rouletteYoutubeSource" class="roulette-youtube-source" aria-hidden="true"></div>
-      <p class="micro-note reveal roulette-note">В рулетке участвуют публичные видео, которые YouTube возвращает из плейлиста загрузок канала. Приватные, удалённые и недоступные ролики не отображаются.</p>
+      <p class="micro-note reveal roulette-note">Сейчас это набор заданий для сайта в стиле Samuil Pashyan. Если Самуил пришлёт свой официальный список заданий, его можно просто подставить в эту же рулетку.</p>
     </section>
 
     <section class="section live-section" id="subscribers">
