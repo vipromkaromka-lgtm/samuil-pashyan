@@ -1,3 +1,32 @@
+// Кинематографичная заставка при открытии сайта.
+const siteIntro = document.getElementById('siteIntro');
+const introSkip = document.getElementById('introSkip');
+let introTimer;
+let introFinished = false;
+
+const finishIntro = () => {
+  if (!siteIntro || introFinished) return;
+  introFinished = true;
+  clearTimeout(introTimer);
+  siteIntro.classList.add('is-leaving');
+  document.body.classList.remove('intro-active');
+
+  window.setTimeout(() => {
+    siteIntro.remove();
+  }, 720);
+};
+
+if (siteIntro) {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  introTimer = window.setTimeout(finishIntro, reduceMotion ? 650 : 3150);
+  introSkip?.addEventListener('click', finishIntro);
+  window.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') finishIntro();
+  }, { once: true });
+} else {
+  document.body.classList.remove('intro-active');
+}
+
 const header = document.getElementById('header');
 const progress = document.getElementById('progress');
 const menuBtn = document.getElementById('menuBtn');
