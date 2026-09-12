@@ -167,202 +167,111 @@ window.addEventListener('keydown', e => {
 });
 
 
-// ===== VIDEO ROULETTE =====
-// Берём публичный плейлист загрузок YouTube-канала. Для channel ID UC... uploads playlist — UU...
-const ROULETTE_CHANNEL_ID = 'UCTrZGARaVSzwa8e_KkvA7PA';
-const ROULETTE_UPLOADS_PLAYLIST = 'UU' + ROULETTE_CHANNEL_ID.slice(2);
-const ROULETTE_FALLBACK_IDS = [
-  'gwV3miiAI70', 'ArpOwBT8ziU', 'H59flEbTfvE', 'OGziKswSrhw', 'sSYMHO9q5BY', '30FqpIx6Z1w',
-  'k5TqAmRSzac', 'RlruXpZv-_A', '-PEQFhDGekg', 'mbFVPsgCLuk'
+// ===== CHALLENGE ROULETTE =====
+const challengeTasks = [
+  { title: 'Сними 10-секундный cinematic-кадр своей техники', description: 'Мотоцикл, машина, велосипед или самокат — техника стоит на месте, а ты снимаешь красивый короткий кадр.', category: 'CREATIVE', difficulty: 'ЛЁГКО', time: '5 МИН' },
+  { title: 'Сделай фото в стиле обложки мотоблога', description: 'Выбери интересный ракурс, фон и попробуй сделать кадр, который мог бы стать превью ролика.', category: 'PHOTO', difficulty: 'ЛЁГКО', time: '5 МИН' },
+  { title: 'Собери свой топ-3 техники мечты', description: 'Выбери три мотоцикла или машины и коротко объясни, почему каждая попала в твой список.', category: 'GARAGE', difficulty: 'ЛЁГКО', time: '3 МИН' },
+  { title: 'Нарисуй дизайн мотоцикла за 3 минуты', description: 'Бумага или заметки в телефоне — придумай раскраску, номер и стиль своего идеального проекта.', category: 'CREATIVE', difficulty: 'СРЕДНЕ', time: '3 МИН' },
+  { title: 'Назови 5 марок мотоциклов за 10 секунд', description: 'Запусти таймер и попробуй уложиться. Повторять одну марку дважды нельзя.', category: 'SPEED', difficulty: 'СРЕДНЕ', time: '10 СЕК' },
+  { title: 'Сделай фото «до / после» чистки техники', description: 'Подойдёт велосипед, самокат, мотоцикл или автомобиль. Безопасно приведи его в порядок и сравни результат.', category: 'GARAGE', difficulty: 'СРЕДНЕ', time: '15 МИН' },
+  { title: 'Придумай название для будущего мотопроекта', description: 'Название должно звучать так, будто это новый проект для YouTube. Чем необычнее — тем лучше.', category: 'CREATIVE', difficulty: 'ЛЁГКО', time: '2 МИН' },
+  { title: 'Найди старый ролик Самуила, который ещё не смотрел', description: 'Открой канал, пролистай назад и выбери видео, которое раньше пропустил.', category: 'WATCH', difficulty: 'ЛЁГКО', time: '10 МИН' },
+  { title: 'Сделай мото- или авто-мем', description: 'Используй свою фотографию или придумай текстовый мем про поездки, ремонт или вечный выбор техники.', category: 'MEME', difficulty: 'ЛЁГКО', time: '5 МИН' },
+  { title: 'Сними 15 секунд «мой транспорт сегодня»', description: 'Покажи свой транспорт красивыми статичными планами. Никакой съёмки во время опасного движения.', category: 'VIDEO', difficulty: 'ЛЁГКО', time: '5 МИН' },
+  { title: 'Устрой угадайку марки техники по фото', description: 'Покажи другу фрагмент фотографии мотоцикла или машины и дай три попытки угадать марку.', category: 'GAME', difficulty: 'ЛЁГКО', time: '5 МИН' },
+  { title: 'Придумай челлендж для Самуила', description: 'Сформулируй безопасную идею для будущего ролика и оставь её ниже в гостевой книге сайта.', category: 'IDEA', difficulty: 'СРЕДНЕ', time: '5 МИН' },
+  { title: 'Выбери: эндуро, супермото или дрифт', description: 'Можно выбрать только один вариант. Объясни свой выбор одним предложением.', category: 'CHOICE', difficulty: 'ЛЁГКО', time: '1 МИН' },
+  { title: 'Сделай обои телефона из фото любимой техники', description: 'Возьми свою фотографию или разрешённое изображение и оформи простой wallpaper.', category: 'DESIGN', difficulty: 'СРЕДНЕ', time: '10 МИН' },
+  { title: 'Посмотри один старый ролик Самуила до конца', description: 'Выбери видео, которое давно не видел, и попробуй найти момент, который раньше не замечал.', category: 'WATCH', difficulty: 'ЛЁГКО', time: '15 МИН' },
+  { title: 'Составь мини-плейлист из 3 роликов Самуила', description: 'Выбери три видео, с которых ты бы посоветовал начать знакомство с каналом.', category: 'WATCH', difficulty: 'ЛЁГКО', time: '5 МИН' },
+  { title: 'Покажи этот сайт одному другу', description: 'Отправь ссылку человеку, которому нравятся мотоциклы, машины или автомобильные ролики.', category: 'SOCIAL', difficulty: 'ЛЁГКО', time: '1 МИН' },
+  { title: 'Придумай слоган канала за 30 секунд', description: 'Короткая фраза — максимум 6 слов. Она должна передавать скорость, технику и приключения.', category: 'SPEED', difficulty: 'СРЕДНЕ', time: '30 СЕК' },
+  { title: 'Выбери лучшее фото в галерее сайта', description: 'Открой галерею, посмотри все фотографии крупно и выбери одну любимую.', category: 'PHOTO', difficulty: 'ЛЁГКО', time: '2 МИН' },
+  { title: 'Придумай идею превью для следующего ролика', description: 'Опиши кадр, крупный текст и главный объект будущей обложки YouTube.', category: 'DESIGN', difficulty: 'СРЕДНЕ', time: '5 МИН' }
 ];
 
 const rouletteMachine = document.getElementById('rouletteMachine');
 const rouletteSpin = document.getElementById('rouletteSpin');
 const rouletteAgain = document.getElementById('rouletteAgain');
-const roulettePool = document.getElementById('roulettePool');
 const rouletteStatus = document.getElementById('rouletteStatus');
-const rouletteHint = document.getElementById('rouletteHint');
 const rouletteResult = document.getElementById('rouletteResult');
-const rouletteResultImage = document.getElementById('rouletteResultImage');
 const rouletteResultTitle = document.getElementById('rouletteResultTitle');
-const rouletteResultLink = document.getElementById('rouletteResultLink');
-const rouletteTiles = [...document.querySelectorAll('[data-roulette-slot]')];
+const taskResultDescription = document.getElementById('taskResultDescription');
+const taskResultNumber = document.getElementById('taskResultNumber');
+const taskResultCategory = document.getElementById('taskResultCategory');
+const taskResultDifficulty = document.getElementById('taskResultDifficulty');
+const taskResultTime = document.getElementById('taskResultTime');
+const challengeWheel = document.getElementById('challengeWheel');
+const challengeShare = document.getElementById('challengeShare');
 
-let rouletteVideos = [...ROULETTE_FALLBACK_IDS];
-let roulettePlayer = null;
 let rouletteBusy = false;
-let rouletteLastWinner = null;
-let roulettePlaylistLoaded = false;
+let rouletteLastWinner = -1;
+let wheelRotation = 0;
+let currentTask = null;
 
-const rouletteThumb = (id) => `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
-const rouletteWatch = (id) => `https://www.youtube.com/watch?v=${id}`;
+const wait = ms => new Promise(resolve => window.setTimeout(resolve, ms));
 
-const shuffleArray = (items) => {
-  const copy = [...items];
-  for (let i = copy.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [copy[i], copy[j]] = [copy[j], copy[i]];
-  }
-  return copy;
-};
-
-const updateRoulettePool = (source = 'channel') => {
-  if (!roulettePool || !rouletteSpin) return;
-  roulettePool.innerHTML = `<span>POOL</span><strong>${rouletteVideos.length} VIDEOS</strong>`;
-  rouletteSpin.disabled = rouletteVideos.length < 2;
-  if (rouletteStatus) rouletteStatus.textContent = source === 'channel' ? 'ВСЕ ПУБЛИЧНЫЕ ЗАГРУЗКИ ГОТОВЫ' : 'РЕЗЕРВНЫЙ ПУЛ ГОТОВ';
-  if (rouletteHint) rouletteHint.textContent = source === 'channel'
-    ? 'Пул получен прямо из плейлиста загрузок YouTube. Каждый запуск выбирает случайный ролик.'
-    : 'YouTube не отдал полный плейлист в этот момент, поэтому используются ролики, уже добавленные на сайт.';
-};
-
-const paintRouletteSlots = (ids, centerId = null) => {
-  if (!rouletteTiles.length || !ids.length) return;
-  const list = ids.length >= rouletteTiles.length ? ids : Array.from({ length: rouletteTiles.length }, (_, i) => ids[i % ids.length]);
-  rouletteTiles.forEach((tile, index) => {
-    const id = centerId && index === 2 ? centerId : list[index % list.length];
-    const img = tile.querySelector('img');
-    const label = tile.querySelector('span');
-    tile.dataset.videoId = id;
-    if (img) {
-      img.src = rouletteThumb(id);
-      img.alt = `Превью случайного видео ${index + 1}`;
-    }
-    if (label) label.textContent = index === 2 ? 'SELECT' : `0${index + 1}`;
-  });
-};
-
-const hydrateRoulettePlaylist = () => {
-  if (!roulettePlayer || roulettePlaylistLoaded) return false;
-  try {
-    const list = roulettePlayer.getPlaylist?.();
-    if (Array.isArray(list) && list.length > 1) {
-      rouletteVideos = [...new Set(list.filter(Boolean))];
-      roulettePlaylistLoaded = true;
-      updateRoulettePool('channel');
-      paintRouletteSlots(shuffleArray(rouletteVideos).slice(0, 5));
-      return true;
-    }
-  } catch (_) {}
-  return false;
-};
-
-const setRouletteFallback = () => {
-  if (roulettePlaylistLoaded) return;
-  rouletteVideos = [...ROULETTE_FALLBACK_IDS];
-  updateRoulettePool('fallback');
-  paintRouletteSlots(shuffleArray(rouletteVideos).slice(0, 5));
-};
-
-const showRouletteWinner = async (id) => {
-  rouletteLastWinner = id;
-  if (rouletteResultImage) rouletteResultImage.src = rouletteThumb(id);
-  if (rouletteResultLink) rouletteResultLink.href = rouletteWatch(id);
-  if (rouletteResultTitle) rouletteResultTitle.textContent = 'Загружаем название видео…';
+const showChallengeWinner = (index) => {
+  const task = challengeTasks[index];
+  currentTask = task;
+  rouletteLastWinner = index;
+  if (taskResultNumber) taskResultNumber.textContent = String(index + 1).padStart(2, '0');
+  if (taskResultCategory) taskResultCategory.textContent = task.category;
+  if (rouletteResultTitle) rouletteResultTitle.textContent = task.title;
+  if (taskResultDescription) taskResultDescription.textContent = task.description;
+  if (taskResultDifficulty) taskResultDifficulty.textContent = task.difficulty;
+  if (taskResultTime) taskResultTime.textContent = task.time;
   if (rouletteResult) {
     rouletteResult.classList.add('is-visible');
     rouletteResult.setAttribute('aria-hidden', 'false');
   }
-
-  try {
-    const response = await fetch(`https://noembed.com/embed?url=${encodeURIComponent(rouletteWatch(id))}`);
-    if (!response.ok) throw new Error('metadata');
-    const data = await response.json();
-    if (rouletteResultTitle) rouletteResultTitle.textContent = data?.title || 'Случайное видео Samuil Pashyan';
-    if (data?.thumbnail_url && rouletteResultImage) rouletteResultImage.src = data.thumbnail_url.replace('http://', 'https://');
-  } catch (_) {
-    if (rouletteResultTitle) rouletteResultTitle.textContent = 'Случайное видео Samuil Pashyan';
-  }
 };
 
-const spinRoulette = async () => {
-  if (rouletteBusy || rouletteVideos.length < 2) return;
+const spinChallengeRoulette = async () => {
+  if (rouletteBusy || !challengeWheel) return;
   rouletteBusy = true;
-  rouletteMachine?.classList.add('is-spinning');
   rouletteSpin.disabled = true;
-  if (rouletteResult) {
-    rouletteResult.classList.remove('is-visible');
-    rouletteResult.setAttribute('aria-hidden', 'true');
-  }
+  rouletteMachine?.classList.add('is-spinning');
+  rouletteResult?.classList.remove('is-visible');
+  rouletteResult?.setAttribute('aria-hidden', 'true');
   if (rouletteStatus) rouletteStatus.textContent = 'РУЛЕТКА КРУТИТСЯ…';
 
-  const pool = shuffleArray(rouletteVideos);
-  let winner = pool[Math.floor(Math.random() * pool.length)];
-  if (rouletteVideos.length > 1 && winner === rouletteLastWinner) {
-    winner = pool.find(id => id !== rouletteLastWinner) || winner;
+  let winner = Math.floor(Math.random() * challengeTasks.length);
+  if (challengeTasks.length > 1 && winner === rouletteLastWinner) {
+    winner = (winner + 1 + Math.floor(Math.random() * (challengeTasks.length - 1))) % challengeTasks.length;
   }
 
-  // Быстро меняем карточки, затем постепенно замедляемся — как настоящая рулетка.
-  const delays = [70,70,75,75,80,85,90,95,105,115,125,140,155,175,200,230,270,320];
-  let cursor = Math.floor(Math.random() * pool.length);
-  for (const delay of delays) {
-    const ids = Array.from({ length: 5 }, (_, offset) => pool[(cursor + offset) % pool.length]);
-    paintRouletteSlots(ids);
-    cursor = (cursor + 1) % pool.length;
-    await new Promise(resolve => window.setTimeout(resolve, delay));
-  }
+  const extraTurns = 6 + Math.floor(Math.random() * 4);
+  const offset = Math.floor(Math.random() * 360);
+  wheelRotation += extraTurns * 360 + offset;
+  challengeWheel.style.transform = `rotate(${wheelRotation}deg)`;
 
-  const winnerIndex = rouletteVideos.indexOf(winner);
-  const finalIds = Array.from({ length: 5 }, (_, offset) => rouletteVideos[(winnerIndex - 2 + offset + rouletteVideos.length) % rouletteVideos.length]);
-  paintRouletteSlots(finalIds, winner);
+  await wait(4300);
   rouletteMachine?.classList.remove('is-spinning');
-  if (rouletteStatus) rouletteStatus.textContent = 'ВИДЕО ВЫБРАНО';
+  if (rouletteStatus) rouletteStatus.textContent = 'ЗАДАНИЕ ВЫБРАНО';
   rouletteSpin.disabled = false;
   rouletteBusy = false;
-  await showRouletteWinner(winner);
+  showChallengeWinner(winner);
 };
 
-rouletteSpin?.addEventListener('click', spinRoulette);
+rouletteSpin?.addEventListener('click', spinChallengeRoulette);
 rouletteAgain?.addEventListener('click', () => {
   rouletteMachine?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  window.setTimeout(spinRoulette, 330);
+  window.setTimeout(spinChallengeRoulette, 320);
 });
 
-// Сразу показываем резервные превью, а затем бесшовно заменяем пул данными YouTube.
-if (rouletteMachine) {
-  paintRouletteSlots(shuffleArray(rouletteVideos).slice(0, 5));
-  if (rouletteStatus) rouletteStatus.textContent = 'ПОДКЛЮЧАЕМСЯ К YOUTUBE…';
-
-  window.onYouTubeIframeAPIReady = () => {
-    try {
-      roulettePlayer = new YT.Player('rouletteYoutubeSource', {
-        width: 240,
-        height: 135,
-        playerVars: { playsinline: 1, controls: 0, disablekb: 1 },
-        events: {
-          onReady: (event) => {
-            try {
-              event.target.cuePlaylist({ listType: 'playlist', list: ROULETTE_UPLOADS_PLAYLIST, index: 0, startSeconds: 0 });
-            } catch (_) {
-              setRouletteFallback();
-            }
-
-            let tries = 0;
-            const timer = window.setInterval(() => {
-              tries += 1;
-              if (hydrateRoulettePlaylist() || tries >= 12) {
-                window.clearInterval(timer);
-                if (!roulettePlaylistLoaded) setRouletteFallback();
-              }
-            }, 500);
-          },
-          onStateChange: () => hydrateRoulettePlaylist(),
-          onError: () => setRouletteFallback()
-        }
-      });
-    } catch (_) {
-      setRouletteFallback();
+challengeShare?.addEventListener('click', async () => {
+  if (!currentTask) return;
+  const text = `Мне выпало задание на сайте Samuil Pashyan: «${currentTask.title}» — ${currentTask.description}`;
+  try {
+    if (navigator.share) {
+      await navigator.share({ title: 'Samuil Challenge Roulette', text, url: window.location.href });
+    } else {
+      await navigator.clipboard.writeText(`${text}\n${window.location.href}`);
+      const old = challengeShare.innerHTML;
+      challengeShare.textContent = 'Скопировано ✓';
+      window.setTimeout(() => { challengeShare.innerHTML = old; }, 1700);
     }
-  };
-
-  const ytApi = document.createElement('script');
-  ytApi.src = 'https://www.youtube.com/iframe_api';
-  ytApi.async = true;
-  ytApi.onerror = setRouletteFallback;
-  document.head.appendChild(ytApi);
-
-  // Не держим кнопку заблокированной бесконечно, если YouTube API недоступен.
-  window.setTimeout(() => {
-    if (!roulettePlaylistLoaded) setRouletteFallback();
-  }, 7000);
-}
+  } catch (_) {}
+});
